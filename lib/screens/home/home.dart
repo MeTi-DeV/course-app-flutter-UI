@@ -17,7 +17,12 @@ class HomePage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
-            children: [EmojiText(), SearchInput(), FeatureCourse(),ActiveCourse()],
+            children: [
+              EmojiText(),
+              SearchInput(),
+              FeatureCourse(),
+              ActiveCourse()
+            ],
           ),
         ));
   }

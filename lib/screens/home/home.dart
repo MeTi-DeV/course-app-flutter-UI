@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:course_app/screens/home/widgets/active_course.dart';
 
 import '/screens/home/widgets/feature_courser.dart';
@@ -7,11 +9,13 @@ import '/screens/home/widgets/search_input.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        bottomNavigationBar:
+            _buildBottomNavigationBar(),
         appBar: _buildAppBar(),
         body: SingleChildScrollView(
           child: Column(
@@ -25,6 +29,29 @@ class HomePage extends StatelessWidget {
             ],
           ),
         ));
+  }
+
+  BottomNavigationBar _buildBottomNavigationBar() {
+    return BottomNavigationBar(
+            showSelectedLabels: false,
+            showUnselectedLabels: false,
+            type: BottomNavigationBarType.fixed, items: [
+        BottomNavigationBarItem(
+          
+            icon: Container(
+              padding: EdgeInsets.only(bottom: 5),
+              child: Text('Home',style: TextStyle(fontWeight: FontWeight.bold),),
+              decoration: BoxDecoration(
+                border: Border( 
+                  bottom: BorderSide(width: 2, color: kAccent),
+                ),
+              ),
+            ),
+            label: 'home'),
+            BottomNavigationBarItem(icon: Image.asset('assets/icons/calendar.png',width: 20,),label: 'calender'),
+            BottomNavigationBarItem(icon: Image.asset('assets/icons/bookmark.png',width: 20,),label: 'bookmark'),
+            BottomNavigationBarItem(icon: Image.asset('assets/icons/user.png',width: 20,),label: 'user'),
+      ]);
   }
 
   AppBar _buildAppBar() {
